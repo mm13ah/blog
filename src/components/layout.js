@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 import Navbar from './navbar';
 import './layout.css';
 
-const navlist = ['About', 'Projects', 'Contact'];
+const lhs = ['Blog'];
+const rhs = ['About', 'Projects', 'Contact'];
 
 const Layout = ({ children }) => (
   <div>
-    <Navbar navlist={navlist} />
+    <Navbar lhs={lhs} rhs={rhs} />
     { children }
   </div>
 );
