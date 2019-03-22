@@ -1,16 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import Navbar from './navbar';
 import './layout.css';
 
-const lhs = ['Blog'];
-const rhs = ['About', 'Projects', 'Contact'];
-
 const Layout = ({ children }) => (
   <div>
-    <Navbar lhs={lhs} rhs={rhs} />
-    { children }
+    <Navbar lhs={['Blog']} rhs={['About', 'Projects', 'Contact']} />
+    <main>
+      { children }
+    </main>
   </div>
 );
 

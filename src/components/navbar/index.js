@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
@@ -25,6 +26,9 @@ const LHS = styled.ul`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  .link {
+    color: white;
+  }
   .desktopLink {
     display: none;
   }
@@ -66,7 +70,11 @@ class Navbar extends React.Component {
     return (
       <Nav>
         <LHS>
-          <li className="icon"><FontAwesomeIcon icon={faHome} /></li>
+          <li className="icon">
+            <Link to="/" className="link">
+              <FontAwesomeIcon icon={faHome} />
+            </Link>
+          </li>
           {lhs.map(item => <li className="desktopLink">{item}</li>)}
           <span />
         </LHS>

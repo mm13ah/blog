@@ -14,6 +14,8 @@ const MobileButtonDiv = styled.div`
 const Button = styled.button`
   background-color: inherit;
   border: none;
+  color: white;
+  font-size: 16px
 `;
 
 const MobileButton = (props) => {
