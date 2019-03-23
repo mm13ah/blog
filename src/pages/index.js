@@ -4,26 +4,38 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faReact, faJs, faHtml5, faCss3Alt,
 } from '@fortawesome/free-brands-svg-icons';
-import homeImg from '../images/alex.jpeg';
+import homeImg from '../images/home.png';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
 const Section = styled.section`
   width: 80vw;
-  margin: 50px auto 0;
+  margin: 80px auto 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media screen and (min-width: 992px) {
-    margin-top: 80px;
-  }
 `;
 
-const HomeImage = styled.img`
-  border-radius: 100%;
-  text-align: center;
-  max-width: 200%;
-  height: auto;
+const HomeImageDiv = styled.div`
+  max-width: 80%;
+  img {
+    border-radius: 100%;
+    text-align: center;
+    max-width: 100%;
+    height: auto;
+  }
+  @media screen and (min-width: 480px) {
+    width: 60%;
+  }
+  @media screen and (min-width: 640px) {
+    width: 50%;
+  }
+  @media screen and (min-width: 768px) {
+    width: 40%;
+  }
+  @media screen and (min-width: 992px) {
+    width: 25%;
+  }
 `;
 
 const IconList = styled.ul`
@@ -49,10 +61,13 @@ const IconList = styled.ul`
 `;
 
 const Title = styled.h1`
-  margin-top: 30px;
+  margin-top: 50px;
   margin-bottom: 10px;
   font-size: 26px;
   letter-spacing: 1px;
+  @media screen and (min-width: 992px) {
+    margin-top: 30px;
+  }
 `;
 
 const Subtitle = styled.p`
@@ -65,9 +80,9 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={['blog', 'javascript', 'react', 'gatsby']} />
     <Section>
-      <div>
-        <HomeImage src={homeImg} alt="Me" />
-      </div>
+      <HomeImageDiv>
+        <img src={homeImg} alt="Me" />
+      </HomeImageDiv>
       <Title>Hi, I&apos;m Alex.</Title>
       <Subtitle>A web developer.</Subtitle>
       <IconList>
