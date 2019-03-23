@@ -11,6 +11,9 @@ const Menu = styled.ul`
     padding-top: 10px;
     text-align: center;
   }
+  li:last-child {
+    padding-top: 3px;
+  }
   @media screen and (min-width: 992px) {
     display: none;
   }
@@ -21,6 +24,7 @@ const MobileMenu = (props) => {
   return (
     <Menu visibility={visibility}>
       {list.map(item => <li>{item}</li>)}
+      <li><hr /></li>
     </Menu>
   );
 };

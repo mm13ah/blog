@@ -10,7 +10,8 @@ import MobileMenu from './mobileMenu';
 const Nav = styled.nav`
   width: 80vw;
   margin: auto;
-  padding-top: 20px;
+  padding: 20px 0 20px 0;
+  letter-spacing: 1.5px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   @media screen and (min-width: 992px) {
@@ -26,9 +27,6 @@ const LHS = styled.ul`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  .link {
-    color: white;
-  }
   .desktopLink {
     display: none;
   }
@@ -52,6 +50,14 @@ const RHS = styled.ul`
   }
 `;
 
+const NavLink = styled(Link)`
+  color: white;
+  text-decoration: none;
+  :hover {
+    text-decoration: underline;
+  }
+`;
+
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
@@ -71,16 +77,20 @@ class Navbar extends React.Component {
       <Nav>
         <LHS>
           <li className="icon">
-            <Link to="/" className="link">
+            <NavLink to="/">
               <FontAwesomeIcon icon={faHome} />
-            </Link>
+            </NavLink>
           </li>
-          {lhs.map(item => <li className="desktopLink">{item}</li>)}
+          {lhs.map(item => (
+            <li className="desktopLink">
+              <NavLink to={item.toLowerCase()}>{item}</NavLink>
+            </li>
+          ))}
           <span />
         </LHS>
         <span />
         <RHS className="rhsList">
-          {rhs.map(item => <li>{item}</li>)}
+          {rhs.map(item => <li><NavLink to={item.toLowerCase()}>{item}</NavLink></li>)}
         </RHS>
         <MobileButton toggleMobileMenu={this.toggleMobileMenu} />
         <span />

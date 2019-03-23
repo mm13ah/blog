@@ -48,6 +48,19 @@ const IconList = styled.ul`
   }
 `;
 
+const Title = styled.h1`
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-size: 26px;
+  letter-spacing: 1px;
+`;
+
+const Subtitle = styled.p`
+  margin-top: 0;
+  font-size: 18px;
+  letter-spacing: 3px;
+`;
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={['blog', 'javascript', 'react', 'gatsby']} />
@@ -55,8 +68,8 @@ const IndexPage = () => (
       <div>
         <HomeImage src={homeImg} alt="Me" />
       </div>
-      <h1 style={{ marginTop: '30px', marginBottom: '10px', fontSize: '26px' }}>Hi, I&apos;m Alex.</h1>
-      <p style={{ marginTop: '0', fontSize: '18px' }}>A web developer.</p>
+      <Title>Hi, I&apos;m Alex.</Title>
+      <Subtitle>A web developer.</Subtitle>
       <IconList>
         <li><FontAwesomeIcon icon={faReact} /></li>
         <li><FontAwesomeIcon icon={faJs} /></li>
