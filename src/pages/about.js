@@ -72,7 +72,7 @@ const AboutPage = () => (
       <AboutText>
         If you&apos;d like to know more about my technical experience or want to see examples of
         my work, check out my projects. If you&apos;d like to know more about me, have a look at
-        my CV. Otherwise, feel free to contact me.
+        my CV below. Otherwise, feel free to contact me.
       </AboutText>
     </Section>
   </Layout>
