@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
-import MobileButton from './mobileButton';
-import MobileMenu from './mobileMenu';
+import MobileButton, { Icon } from './mobileButton';
+import MobileMenu, { NavLink } from './mobileMenu';
 
 const Nav = styled.nav`
   width: 80vw;
@@ -50,14 +48,6 @@ const RHS = styled.ul`
   }
 `;
 
-const NavLink = styled(Link)`
-  color: white;
-  text-decoration: none;
-  :hover {
-    text-decoration: underline;
-  }
-`;
-
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
@@ -76,21 +66,21 @@ class Navbar extends React.Component {
     return (
       <Nav>
         <LHS>
-          <li className="icon">
+          <li className="icon" key="home">
             <NavLink to="/">
-              <FontAwesomeIcon icon={faHome} />
+              <Icon icon={faHome} />
             </NavLink>
           </li>
           {lhs.map(item => (
-            <li className="desktopLink">
-              <NavLink to={item.toLowerCase()}>{item}</NavLink>
+            <li className="desktopLink" key={item.toLowerCase()}>
+              <NavLink to={`/${item.toLowerCase()}`}>{item}</NavLink>
             </li>
           ))}
           <span />
         </LHS>
         <span />
         <RHS className="rhsList">
-          {rhs.map(item => <li><NavLink to={item.toLowerCase()}>{item}</NavLink></li>)}
+          {rhs.map(item => <li key={item.toLowerCase()}><NavLink to={`/${item.toLowerCase()}`}>{item}</NavLink></li>)}
         </RHS>
         <MobileButton toggleMobileMenu={this.toggleMobileMenu} />
         <span />

@@ -61,6 +61,7 @@ const IconList = styled.ul`
 `;
 
 const Title = styled.h1`
+  text-align: center;
   margin-top: 50px;
   margin-bottom: 10px;
   font-size: 26px;

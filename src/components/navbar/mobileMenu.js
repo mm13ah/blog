@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 const Menu = styled.ul`
@@ -19,12 +20,20 @@ const Menu = styled.ul`
   }
 `;
 
+export const NavLink = styled(Link)`
+  color: white;
+  text-decoration: none;
+  :hover {
+    text-decoration: underline;
+  }
+`;
+
 const MobileMenu = (props) => {
   const { visibility, list } = props;
   return (
-    <Menu visibility={visibility}>
-      {list.map(item => <li>{item}</li>)}
-      <li><hr /></li>
+    <Menu visibility={visibility ? 1 : 0}>
+      {list.map(item => <li key={item.toLowerCase()}><NavLink to={`/${item.toLowerCase()}`}>{item}</NavLink></li>)}
+      <li key="line"><hr /></li>
     </Menu>
   );
 };
@@ -32,6 +41,10 @@ const MobileMenu = (props) => {
 MobileMenu.propTypes = {
   list: PropTypes.arrayOf(PropTypes.string).isRequired,
   visibility: PropTypes.bool.isRequired,
+};
+
+Menu.propTypes = {
+  visibility: PropTypes.number.isRequired,
 };
 
 export default MobileMenu;

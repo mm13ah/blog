@@ -15,7 +15,10 @@ const Button = styled.button`
   background-color: inherit;
   border: none;
   color: white;
-  font-size: 16px
+`;
+
+export const Icon = styled(FontAwesomeIcon)`
+  font-size: 18px;
 `;
 
 const MobileButton = (props) => {
@@ -23,7 +26,7 @@ const MobileButton = (props) => {
   return (
     <MobileButtonDiv>
       <Button type="button" onClick={toggleMobileMenu}>
-        <FontAwesomeIcon icon={faBars} />
+        <Icon icon={faBars} />
       </Button>
     </MobileButtonDiv>
   );

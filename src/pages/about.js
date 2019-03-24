@@ -9,10 +9,10 @@ const Section = styled.section`
   flex-direction: column;
   align-items: center;
   justify-items: center;
-
 `;
 
-const Title = styled.h1`
+export const Title = styled.h1`
+  text-align: center;
   font-size: 30px;
 `;
 
@@ -61,8 +61,8 @@ const AboutPage = () => (
       <AboutText>
         I love working with JavaScript and all the brilliant open source technologies
         that come with it. The current technologies I use are React, Gatsby, GraphQL,
-        TypeScript and NodeJS. I have a solidfoundation in HTML, CSS and responsive design,
-        and also previous experience using Bootstrap and jQuery.
+        TypeScript and NodeJS. I have a solid foundation in writing semantic HTML, CSS
+        and responsive design, and also previous experience using Bootstrap and jQuery.
       </AboutText>
       <AboutText>
           Aside from programming, I run the events&apos; brand &apos;Hot Sauce&apos;, a monthly
