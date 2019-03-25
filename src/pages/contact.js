@@ -20,8 +20,17 @@ const Section = styled.section`
 // `;
 
 const Form = styled.form`
+  width: 30vw;
   display: flex;
   flex-direction: column;
+  input, textarea {
+    background-color: #333;
+    color: white;
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding: 5px;
+    border-width: 2px;
+  }
 `;
 
 const Label = styled.label`
@@ -33,13 +42,7 @@ const Label = styled.label`
 const Textarea = styled.textarea`
   @import url('https://fonts.googleapis.com/css?family=Lato');
   font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  padding: 1px;
-  border-left: 6px solid white;
-  border-right: 6px solid white;
-  border-top: 2px solid white;
-  border-bottom: 2px solid white;
-  margin: 0;
-  border-radius: 1%;
+  
 `;
 
 const ContactPage = () => (
@@ -50,14 +53,17 @@ const ContactPage = () => (
       {/* <ImageContainer>
         <img src={contactImg} alt="Me" />
       </ImageContainer> */}
-      <p>If you&apos;d like to contact me for any reason, you can get in touch below.</p>
+      <p>
+        If you have any questions, or just fancy a chat, feel free to get in
+        contact with me below.
+      </p>
       <Form>
         <Label htmlFor="name">Name:</Label>
         <input id="name" type="text" placeholder="Name" />
         <Label htmlFor="email">Email:</Label>
         <input id="email" type="email" placeholder="Email" />
         <Label htmlFor="message">Message:</Label>
-        <Textarea id="message" type="text" placeholder="Message" />
+        <Textarea id="message" type="text" placeholder="Message" rows="10" />
         <input type="submit" value="Submit" />
       </Form>
     </Section>
