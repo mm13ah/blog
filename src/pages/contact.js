@@ -3,26 +3,21 @@ import styled from 'styled-components';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
 import { Title } from './about';
-// import contactImg from '../images/contact.jpg';
 
 const Section = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-items: center;
+  margin: auto;
+  width: 80vw;
 `;
 
-// const ImageContainer = styled.div`
-//   width: 20vw;
-//   margin: auto;
-//   img {
-//     max-width: 100%;
-//   }
-// `;
-
 const Form = styled.form`
-  width: 30vw;
+  width: 70vw;
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
   input, textarea {
     background-color: #333;
     color: white;
@@ -30,6 +25,19 @@ const Form = styled.form`
     font-size: 16px;
     padding: 5px;
     border-width: 2px;
+  }
+  textarea {
+    @import url('https://fonts.googleapis.com/css?family=Lato');
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  input::placeholder, textarea::placeholder {
+    color: white;
+  }
+  @media screen and (min-width: 768px) {
+    width: 40vw;
+  }
+  @media screen and (min-width: 992px) {
+    width: 30vw;
   }
 `;
 
@@ -39,20 +47,11 @@ const Label = styled.label`
   }
 `;
 
-const Textarea = styled.textarea`
-  @import url('https://fonts.googleapis.com/css?family=Lato');
-  font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  
-`;
-
 const ContactPage = () => (
   <Layout>
     <SEO title="About" keywords={['blog', 'javascript', 'react', 'gatsby']} />
     <Section>
       <Title>Contact</Title>
-      {/* <ImageContainer>
-        <img src={contactImg} alt="Me" />
-      </ImageContainer> */}
       <p>
         If you have any questions, or just fancy a chat, feel free to get in
         contact with me below.
@@ -63,7 +62,7 @@ const ContactPage = () => (
         <Label htmlFor="email">Email:</Label>
         <input id="email" type="email" placeholder="Email" />
         <Label htmlFor="message">Message:</Label>
-        <Textarea id="message" type="text" placeholder="Message" rows="10" />
+        <textarea id="message" type="text" placeholder="Message" rows="10" />
         <input type="submit" value="Submit" />
       </Form>
     </Section>

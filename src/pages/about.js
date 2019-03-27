@@ -35,6 +35,7 @@ const AboutImageDiv = styled.div`
 const AboutText = styled.p`
   font-size: 18px;
   text-align: justify;
+  line-height: 2;
   width: 80vw;
   @media screen and (min-width: 768px) {
   width: 60vw;
@@ -61,8 +62,9 @@ const AboutPage = () => (
       <AboutText>
         I love working with JavaScript and all the brilliant open source technologies
         that come with it. The current technologies I use are React, Gatsby, GraphQL,
-        TypeScript and NodeJS. I have a solid foundation in writing semantic HTML, CSS
-        and responsive design, and also previous experience using Bootstrap and jQuery.
+        TypeScript and NodeJS. I have a solid foundation in writing semantic HTML, styling
+        and creating responsive layouts with CSS, and also previous experience using Bootstrap
+        and jQuery.
       </AboutText>
       <AboutText>
           Aside from programming, I run the events&apos; brand &apos;Hot Sauce&apos;, a monthly
