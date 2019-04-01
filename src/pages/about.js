@@ -3,8 +3,20 @@ import styled from 'styled-components';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import aboutImg from '../images/about.jpg';
+import cv from '../images/cv.png';
 
-const Section = styled.section`
+export const Section = styled.section`
+  width: 80vw;
+  margin: auto;
+  @media screen and (min-width: 768px) {
+  width: 60vw;
+  }
+  @media screen and (min-width: 992px) {
+    width: 50vw;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 35vw;
+  }
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,6 +57,20 @@ const AboutText = styled.p`
   }
 `;
 
+const ImageContainer = styled.div`
+  width: 80vw;
+  @media screen and (min-width: 768px) {
+  width: 60vw;
+  }
+  @media screen and (min-width: 992px) {
+    width: 50vw;
+  }
+  img {
+    max-width: 100%;
+    margin: 50px auto;
+  }
+`;
+
 const AboutPage = () => (
   <Layout>
     <SEO title="About" keywords={['blog', 'javascript', 'react', 'gatsby']} />
@@ -76,6 +102,9 @@ const AboutPage = () => (
         my work, check out my projects. If you&apos;d like to know more about me, have a look at
         my CV below. Otherwise, feel free to contact me.
       </AboutText>
+      <ImageContainer>
+        <img src={cv} alt="My CV" />
+      </ImageContainer>
     </Section>
   </Layout>
 );
