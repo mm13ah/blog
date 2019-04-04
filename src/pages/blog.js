@@ -4,7 +4,25 @@ import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
 import Layout from '../components/layout';
-import { Title, Section } from './about';
+import { Title } from './about';
+
+const Section = styled.section`
+  width: 40vw;
+  margin: auto;
+  @media screen and (min-width: 768px) {
+  width: 60vw;
+  }
+  @media screen and (min-width: 992px) {
+    width: 50vw;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 35vw;
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+`;
 
 const PostList = styled.ul`
   list-style-type: none;
@@ -17,7 +35,7 @@ const PostLink = styled(Link)`
 `;
 
 const BlogPage = ({ data }) => {
-  const { edges: posts } = data.allMdx;
+  const { edges: posts } = data.allMarkdownRemark;
   return (
     <Layout>
       <Section>
@@ -26,7 +44,8 @@ const BlogPage = ({ data }) => {
           {posts.map(({ node: post }) => (
             <li key={post.id}>
               <PostLink to={post.frontmatter.path}>
-                <h2>{post.frontmatter.title}</h2>
+                <h2 style={{ textAlign: 'center' }}>{post.frontmatter.title}</h2>
+                <img src={post.frontmatter.image.publicURL} alt={post.frontmatter.title} style={{ maxWidth: '100%' }} />
               </PostLink>
               <p>{post.excerpt}</p>
             </li>
@@ -39,16 +58,17 @@ const BlogPage = ({ data }) => {
 
 export const pageQuery = graphql`
   query blogIndex {
-    allMdx {
+    allMarkdownRemark {
       edges {
         node {
           id
           excerpt
           frontmatter {
             title
-          }
-          frontmatter {
             path
+            image {
+              publicURL
+            }
           }
         }
       }

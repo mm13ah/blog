@@ -5,7 +5,6 @@ module.exports = {
     author: '@mm13ah',
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -23,6 +22,15 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          'gatsby-remark-prismjs',
+        ],
+      },
+    },
+    'gatsby-plugin-react-helmet',
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'gatsby-starter-default',
@@ -31,22 +39,14 @@ module.exports = {
         background_color: '#333333',
         theme_color: '#333333',
         display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
+        icon: 'src/images/shared/favicon.png',
       },
     },
+    'gatsby-remark-copy-linked-files',
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: 'gatsby-remark-images',
       options: {
-        plugins: [
-          'gatsby-remark-prismjs',
-        ],
-      },
-    },
-    {
-      resolve: 'gatsby-mdx',
-      options: {
-        extensions: ['.mdx', '.md'],
-        defaultLayout: require.resolve('./src/templates/post.js'),
+        maxWidth: 1080,
       },
     },
   ],

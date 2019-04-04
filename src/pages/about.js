@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import aboutImg from '../images/about.jpg';
-import cv from '../images/cv.png';
+import aboutImg from '../images/about/about.jpg';
+import cv from '../images/about/cv.png';
 
 export const Section = styled.section`
   width: 80vw;

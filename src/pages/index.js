@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faReact, faJs, faHtml5, faCss3Alt,
 } from '@fortawesome/free-brands-svg-icons';
-import homeImg from '../images/home.png';
+import homeImg from '../images/home/home.png';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 

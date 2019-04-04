@@ -1,7 +1,8 @@
 ---
-path: '/blog/getting-started-with-javascript'
-title: 'Getting started with JavaScript'
-date: '30-04-2019'
+path: '/blog/getting-started-with-react'
+title: 'Getting Started with React'
+date: '2019-04-02'
+image: './image.png'
 ---
 
 So you want to learn JavaScript?
@@ -15,13 +16,12 @@ Printing Data:
 In languages like Python and C++, printing data to the terminal is a common requirement. So 
 how do we do this in JavaScript? It's a little different to the methods in the languages mentioned
 above. Because JavaScript was built to work with the browser, we use the command
-<pre>console.log(data);</pre>
 
 ```js
-{
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/pages`,
-        name: "pages",
-      },
-    }
+const hello = 'world';
+
+```
+
+Resources:
+- React Docs
+- Codecademy
