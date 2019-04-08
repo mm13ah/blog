@@ -8,9 +8,16 @@ import Layout from '../components/layout';
 import { Title } from '../pages/about';
 
 const Article = styled.article`
-  width: 70vw;
+  width: 60vw;
   margin: auto;
   line-height: 150%;
+  /* img {
+    max-width: 50%;
+    margin: auto;
+  } */
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
 `;
 
 const Post = styled.div`
@@ -26,6 +33,7 @@ const PostTemplate = ({ data }) => {
     <Layout>
       <Article>
         <Title>{post.frontmatter.title}</Title>
+        {/* <img src={post.frontmatter.image.publicURL} alt={post.frontmatter.title} /> */}
         {/* eslint-disable-next-line react/no-danger */}
         <Post dangerouslySetInnerHTML={{ __html: post.html }} />
       </Article>
@@ -44,6 +52,9 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
+        image {
+          publicURL
+        }
       }
     }
   }
