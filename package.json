@@ -29,7 +29,9 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
-    "styled-components": "^4.2.0"
+    "react-particles-js": "^2.6.0",
+    "styled-components": "^4.2.0",
+    "tailwind.macro": "^0.5.10"
   },
   "devDependencies": {
     "eslint": "^5.15.3",
@@ -37,7 +39,8 @@
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
-    "prettier": "^1.16.4"
+    "prettier": "^1.16.4",
+    "tailwindcss": "^0.7.4"
   },
   "keywords": [
     "gatsby"

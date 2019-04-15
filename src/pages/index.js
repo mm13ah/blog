@@ -24,6 +24,9 @@ const HomeImageDiv = styled.div`
     max-width: 100%;
     height: auto;
   }
+  img:hover {
+    filter: blur(0px);
+  }
   @media screen and (min-width: 480px) {
     width: 60%;
   }
@@ -78,7 +81,7 @@ const Subtitle = styled.p`
 `;
 
 const IndexPage = () => (
-  <Layout>
+  <Layout particles>
     <SEO title="Home" keywords={['blog', 'javascript', 'react', 'gatsby']} />
     <Section>
       <HomeImageDiv>
@@ -93,6 +96,7 @@ const IndexPage = () => (
         <li><FontAwesomeIcon icon={faCss3Alt} /></li>
       </IconList>
     </Section>
+    {/* </Particles> */}
   </Layout>
 );
 

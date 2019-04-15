@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import tw from 'tailwind.macro';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
@@ -14,11 +15,11 @@ const MobileButtonDiv = styled.div`
 const Button = styled.button`
   background-color: inherit;
   border: none;
-  color: white;
+  color: whitesmoke;
 `;
 
 export const Icon = styled(FontAwesomeIcon)`
-  font-size: 18px;
+  ${tw`text-base`};
 `;
 
 const MobileButton = (props) => {

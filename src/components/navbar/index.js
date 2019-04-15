@@ -8,7 +8,7 @@ import MobileMenu, { NavLink } from './mobileMenu';
 const Nav = styled.nav`
   width: 80vw;
   margin: auto;
-  padding: 25px 0 25px 0;
+  padding: 2rem 0;
   letter-spacing: 1.5px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

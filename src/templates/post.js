@@ -3,14 +3,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import Helmet from 'react-helmet';
 import styled from 'styled-components';
-import { graphql } from 'gatsby';
+import tw from 'tailwind.macro';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { graphql, Link } from 'gatsby';
 import Layout from '../components/layout';
-import { Title } from '../pages/about';
 
 const Article = styled.article`
-  width: 60vw;
+  width: 80vw;
   margin: auto;
   line-height: 150%;
+  h1 {
+    ${tw`text-3xl text-center`};
+  }
+  @media screen and (min-width: 992px) {
+    width: 60vw;
+  }
   /* img {
     max-width: 50%;
     margin: auto;
@@ -21,21 +29,74 @@ const Article = styled.article`
 `;
 
 const Post = styled.div`
-  margin-top: 70px;
+  margin-top: 40px;
   a {
-    color: white;
+    color: whitesmoke;
   }
+  h2 {
+    ${tw`text-2xl`};
+  }
+  h3 {
+    ${tw`text-xl`};
+  }
+  p, ul, li {
+    ${tw`text-base leading-normal`};
+  }
+`;
+
+const PageLinks = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  .link {
+    color: whitesmoke;
+    text-decoration: none;
+    ${tw`text-2xl`}
+    /* vertical-align: center; */
+  }
+
 `;
 
 const PostTemplate = ({ data }) => {
   const { markdownRemark: post } = data;
+  const { frontmatter, html } = post;
+  const {
+    title, prev, next, index,
+  } = frontmatter;
+  const prevPage = prev ? prev.replace(/-/g, ' ').replace(/\//g, '') : '';
+  const nextPage = next ? next.replace(/-/g, ' ').replace(/\//g, '') : '';
   return (
     <Layout>
       <Article>
-        <Title>{post.frontmatter.title}</Title>
-        {/* <img src={post.frontmatter.image.publicURL} alt={post.frontmatter.title} /> */}
+        <h1>{title}</h1>
+        {/* <img src={image.publicURL} alt={title} /> */}
         {/* eslint-disable-next-line react/no-danger */}
-        <Post dangerouslySetInnerHTML={{ __html: post.html }} />
+        <Post dangerouslySetInnerHTML={{ __html: html }} />
+        <PageLinks>
+          {prev
+            ? (
+              <Link className="link" to={`${index}${prev}`}>
+                <FontAwesomeIcon className="icon" icon={faArrowLeft} style={{ marginRight: '10px' }} />
+                <span>Previous</span>
+                <div style={{ fontSize: '0.9rem', textAlign: 'center' }}>{prev === '/' ? 'Introduction' : prevPage.charAt(0).toUpperCase() + prevPage.slice(1)}</div>
+              </Link>
+            ) : (
+              <span />)
+            }
+          {next
+            ? (
+              <Link className="link" to={`${index}${next}`}>
+                <span>Next</span>
+                <FontAwesomeIcon className="icon" icon={faArrowRight} style={{ marginLeft: '10px' }} />
+                <div style={{ fontSize: '0.9rem', textAlign: 'center' }}>{nextPage.charAt(0).toUpperCase() + nextPage.slice(1)}</div>
+              </Link>
+            ) : (
+              <span />)
+            }
+        </PageLinks>
       </Article>
     </Layout>
   );
@@ -55,6 +116,9 @@ export const pageQuery = graphql`
         image {
           publicURL
         }
+        index
+        prev
+        next
       }
     }
   }

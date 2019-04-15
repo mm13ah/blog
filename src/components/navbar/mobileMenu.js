@@ -21,7 +21,7 @@ const Menu = styled.ul`
 `;
 
 export const NavLink = styled(Link)`
-  color: white;
+  color: whitesmoke;
   text-decoration: none;
   :hover {
     text-decoration: underline;

@@ -1,3 +1,4 @@
+/* eslint-disable react/self-closing-comp */
 import React from 'react';
 import styled from 'styled-components';
 import SEO from '../components/seo';
@@ -15,23 +16,25 @@ const Section = styled.section`
 
 const Form = styled.form`
   width: 70vw;
-  display: flex;
+  display: grid;
+  flex-wrap: wrap;
   flex-direction: column;
   margin-top: 20px;
+  align-items: center;
   input, textarea {
-    background-color: #333;
-    color: white;
+    background-color: rgb(41, 48, 61);
+    color: whitesmoke;
     margin-bottom: 10px;
-    font-size: 16px;
     padding: 5px;
     border-width: 2px;
+    font-size: 16px;
   }
   textarea {
     @import url('https://fonts.googleapis.com/css?family=Lato');
     font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
   input::placeholder, textarea::placeholder {
-    color: white;
+    color: whitesmoke;
   }
   @media screen and (min-width: 768px) {
     width: 40vw;
@@ -48,7 +51,7 @@ const Label = styled.label`
 `;
 
 const ContactPage = () => (
-  <Layout>
+  <Layout particles>
     <SEO title="About" keywords={['blog', 'javascript', 'react', 'gatsby']} />
     <Section>
       <Title>Contact</Title>
@@ -56,13 +59,14 @@ const ContactPage = () => (
         If you have any questions, or just fancy a chat, feel free to get in
         contact with me below.
       </p>
-      <Form>
+      <Form name="contact" method="POST" data-netlify="true">
         <Label htmlFor="name">Name:</Label>
         <input id="name" type="text" placeholder="Name" />
         <Label htmlFor="email">Email:</Label>
         <input id="email" type="email" placeholder="Email" />
         <Label htmlFor="message">Message:</Label>
-        <textarea id="message" type="text" placeholder="Message" rows="10" />
+        {/* // eslint-disable-next-line react/self-closing-comp */}
+        <textarea id="message" type="text" placeholder="Message" rows="8" />
         <input type="submit" value="Submit" />
       </Form>
     </Section>
