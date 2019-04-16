@@ -45,7 +45,7 @@ const AboutImageDiv = styled.div`
 `;
 
 const AboutText = styled.p`
-  font-size: 18px;
+  font-size: 1.3em;
   text-align: justify;
   line-height: 2;
   width: 80vw;

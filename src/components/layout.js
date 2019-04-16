@@ -33,12 +33,8 @@ const particleParams = {
     },
   },
   interactivity: {
-    detect_on: 'canvas',
+    detect_on: 'window',
     events: {
-      onclick: {
-        enable: true,
-        mode: 'push',
-      },
       onhover: {
         enable: true,
         mode: 'repulse',

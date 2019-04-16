@@ -12,7 +12,7 @@ import Layout from '../components/layout';
 const Article = styled.article`
   width: 80vw;
   margin: auto;
-  line-height: 150%;
+  line-height: 1.6;
   h1 {
     ${tw`text-3xl text-center`};
   }
@@ -40,7 +40,7 @@ const Post = styled.div`
     ${tw`text-xl`};
   }
   p, ul, li {
-    ${tw`text-base leading-normal`};
+    ${tw`text-xl leading-normal`};
   }
 `;
 
@@ -81,7 +81,7 @@ const PostTemplate = ({ data }) => {
               <Link className="link" to={`${index}${prev}`}>
                 <FontAwesomeIcon className="icon" icon={faArrowLeft} style={{ marginRight: '10px' }} />
                 <span>Previous</span>
-                <div style={{ fontSize: '0.9rem', textAlign: 'center' }}>{prev === '/' ? 'Introduction' : prevPage.charAt(0).toUpperCase() + prevPage.slice(1)}</div>
+                <div style={{ fontSize: '1rem', textAlign: 'center' }}>{prev === '/' ? 'Introduction' : prevPage.charAt(0).toUpperCase() + prevPage.slice(1)}</div>
               </Link>
             ) : (
               <span />)
@@ -91,7 +91,7 @@ const PostTemplate = ({ data }) => {
               <Link className="link" to={`${index}${next}`}>
                 <span>Next</span>
                 <FontAwesomeIcon className="icon" icon={faArrowRight} style={{ marginLeft: '10px' }} />
-                <div style={{ fontSize: '0.9rem', textAlign: 'center' }}>{nextPage.charAt(0).toUpperCase() + nextPage.slice(1)}</div>
+                <div style={{ fontSize: '1rem', textAlign: 'center' }}>{nextPage.charAt(0).toUpperCase() + nextPage.slice(1)}</div>
               </Link>
             ) : (
               <span />)

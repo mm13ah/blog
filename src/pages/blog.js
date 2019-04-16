@@ -8,7 +8,7 @@ import Layout from '../components/layout';
 import { Title } from './about';
 
 const Section = styled.section`
-  width: 40vw;
+  width: 80vw;
   margin: auto;
   @media screen and (min-width: 768px) {
   width: 60vw;
@@ -16,9 +16,9 @@ const Section = styled.section`
   @media screen and (min-width: 992px) {
     width: 50vw;
   }
-  @media screen and (min-width: 1200px) {
+  /* @media screen and (min-width: 1200px) {
     width: 50vw;
-  }
+  } */
   display: flex;
   flex-direction: column;
 `;
