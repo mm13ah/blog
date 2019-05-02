@@ -22,7 +22,7 @@ A string is a data type used to stored text - strings can include letters, numbe
 const greeting = 'hello';
 const farewell = "goodbye";
 ```
-If we want to include single `'` or double quotes within our string, then we have two options. We can either use a different quotation mark from the one we want to use to declare the string:
+If we want to include single or double quotes within our string, then we have two options. We can either use a different quotation mark from the one we want to use to declare the string:
 ```js
 const sentence = "It can't be";
 ```

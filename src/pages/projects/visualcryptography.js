@@ -8,9 +8,9 @@ import visualCryptographyImg from '../../images/projects/visual-cryptography.png
 const name = 'Visual Cryptography';
 const info = [`For my undergraduate dissertation, I studied and implemented a cryptographic technique known 
 as visual cryptography (Wikipedia). This involved a comprehensive study into the topic of visual cryptography,
-a lengthy implementation and testing phase, followed by a write up of a detailed report.`,
+followed by lengthy implementation and testing phase, and finally a detailed write up of a the project.`,
 `This was my first major programming project and greatly developed my skills of analysis, software development
-and report writing (to new a few).`,
+and report writing (to name a few).`,
 `Equipped with the skills I have now, if I had to do a project like this again I would love to take a more web-app
 based approach, maybe using a JavaScript framework like React for the frontend (it would definitely look better). 
 It would also be interesting to try and use NodeJS on the backend and see how this played out with C++.`];

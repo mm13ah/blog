@@ -34,13 +34,16 @@ const Post = styled.div`
     color: whitesmoke;
   }
   h2 {
-    ${tw`text-2xl`};
+    ${tw`text-3xl`};
   }
   h3 {
+    ${tw`text-2xl`};
+  }
+  h4 {
     ${tw`text-xl`};
   }
   p, ul, li {
-    ${tw`text-xl leading-normal`};
+    ${tw`text-lg leading-normal`};
   }
 `;
 
@@ -113,9 +116,6 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        image {
-          publicURL
-        }
         index
         prev
         next

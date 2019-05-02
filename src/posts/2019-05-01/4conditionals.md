@@ -75,15 +75,15 @@ if (year >= 2000) { // year is greater than 2000, so year >= 2000 evaluates to t
 Make sure you are comparing numbers when using these operators - if you try and compare other values, JavaScript will try and convert these values to numbers - which could result in `NaN`!
 
 ### Strict equality vs. loose equality
-So the first four comparison operators we looked at are pretty straight forward, but what about the strict equality and loose equality? These operators are used to check whether one value is equal to another. The difference between them is that
-- Strict equality compares type and value, whereas
+So the first four comparison operators we looked at are pretty straight forward, but what about strict equality and loose equality? These operators are used to check whether one value is equal to another. The difference between them is:
+- Strict equality compares type and value
 - Loose equality compares only value
 
-What we mean by this, is that strict equality checks whether two values are the same and checks whether they are of the same type, whereas loose equality only checks whether the values are the same. Perhaps this is better illustrated with an example:
+What we mean by this is that strict equality checks whether two values are the same and checks whether they are of the same type, whereas loose equality only checks whether the values are the same. Perhaps this is better illustrated with an example:
 ```js
 const age = 23;
 console.log(age == '23'); // Outputs true because of loose equality, age and '23' have the same value
-console.log(age === '23'); // Outputs false because of strict equality, age and '23' have different type
+console.log(age === '23'); // Outputs false because of strict equality, age and '23' have different types
 console.log(age === 23); // Outputs true, age and 23 have same value and type
 ```
 In most cases you'll want to use the strict equality comparison operator, as it's more likely you'll want to test for type and value instead of just value. Also make sure that you're not using the assignment operator `=` when you want to test for equality!
@@ -143,12 +143,14 @@ console.log(bankAccountIsEmpty); // Outputs true, because ! switches the value o
 It may be easier to read the bang operator as 'not', so in the above example we would say `bankAccountIsEmpty` is not `false` (so it's `true`).
 
 ### Switch statement
-When we have multiple conditions we want to test, we've mentioned above that you can use `else if` statements to check each condition. The `switch` statement provides us with an alternative way to do this. To use the `switch` statement, we pass it a variable, and then define a number of `case`s that only execute if that `case` is true. This might sound confusing, but is best illustrated with an example:
+The switch statement provides us with an alternative to way execute blocks of code based on different conditions. The way the switch statement works
+
+To use the switch statement, we pass it a variable, and then define a number of cases that only execute if that variable equals that case. This might sound confusing, but is best illustrated with an example:
 ```js
-const age = 18;
-switch(age) {
-  case 18: {
-    code block
+const category = 'adult';
+switch(category) {
+  case 'adult': {
+    console.log(`You're an adult`);
     break;
   }
   case y: {
@@ -160,19 +162,39 @@ switch(age) {
   }
 }
 ```
+So we use the switch statement to check whether a variable is equal to certain values - we can't use comparison or logical operators here as these will evaluate to `true` or `false`
+
+Note that switch statements use strict equality for comparison!
+
 
 ### Ternary operator
-Maybe we would want to store whether the age was greater than 18 in a variable, so that we can reuse it throughout our program.
+The ternary operator was introduced in ES6 and is often considered as an inline if statement. We can use the ternary operator by writing the following syntax:
+
 ```js
-let age = 23;
-let over18 = false;
-if (age) {
-  over18 = true;
-}
+condition ? valueIfTrue : valueIfFalse
+```
+So converting an example we used above:
+```js
+const age = 23;
+age < 18 ? console.log('Not old enough') : console.log('Have a beer');
+```
+I often read the `?` as `if` and `:` as `else`, which has a nice correspondence with the if else statement. I find I use the ternary operator the most for assigning variables based on a condition, for example:
+```js
+const age = 23;
+const category = age < 18 ? 'child' : 'adult';
+console.log(category); // Will output 'adult'
+```
+Note that you can chain multiple ternary operators together:
+```js
+const age = 23;
+const category = age < 18 ? 'child' : age < 30 ? 'young adult' : 'adult';
+console.log(category); // Will output 'young adult'
 ```
 
+In practice it's probably a better idea to use if/else if statements or the switch statement rather than multiple ternary operators, as they can quickly become hard to read.
+
 ### Truthy vs. falsy
-So we've covered `if` statements, `switch` statements and the ternary operator, as well as comparison and logical operators. In all of these examples our conditionals have been executed on whether a condition was `true` or `false`. But what happens, for example, if we pass a condition into an `if` statement that doesn't evaluate to `true` or `false`? This is where the concept of *truthy* and *falsy* values come in. As stated in the <a href="" target="_blank" rel="noopener noreferrer">MDN Docs</a> "a truthy value is a value that is considered true when encountered in a Boolean context. All values are truthy unless they are defined as falsy".
+So we've covered if statements, switch statements and the ternary operator, as well as comparison and logical operators. In all of these examples our conditionals have been executed on whether a condition was `true` or `false`. But what happens if, for example, we pass a condition into an if statement that doesn't evaluate to `true` or `false`? This is where the concept of *truthy* and *falsy* values come in. As stated in the <a href="" target="_blank" rel="noopener noreferrer">MDN Docs</a> "a truthy value is a value that is considered true when encountered in a Boolean context. All values are truthy unless they are defined as falsy".
 
 In JavaScript, falsy values are any of the following:
 - `false`

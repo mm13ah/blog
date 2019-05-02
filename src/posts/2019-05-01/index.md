@@ -5,11 +5,11 @@ subtitle: 'Introduction'
 indexPage: true
 index: '/blog/javascript-basics'
 next: '/absolute-basics'
-date: '2019-04-09'
+date: '2019-05-01'
 image: './image.jpg'
 ---
 
-JavaScript is a great language to learn. It has many applications and can be used everywhere - in the browser, on the server, for creating mobile apps and even desktop apps! In this post we'll be going over the basics of JavaScript, so no prerequisite knowledge is required. We're going to be covering:
+JavaScript is a great language to learn. It has many applications and can be used everywhere - in the browser, on the server, for creating mobile apps and even desktop apps! In this blog post we'll be going over the basics of JavaScript, so no prerequisite knowledge is required. We're going to be covering:
 - Variables
 - Types
 - Arrays
@@ -36,9 +36,9 @@ As an introduction, let's look at an extract from the <a href="https://developer
 "JavaScript is a prototype based, multi-paradigm, dynamic language, supporting object-orientated,
 imperative and declarative (e.g. functional programming) styles."
 ```
-Hopefully the above doesn't make any sense to you, which is why we're covering the basics of JavaScript! We'll return to this definition at the end of the post, and, equipped with our knowledge, we'll tackle it piece by piece. 
+Hopefully the above doesn't make any sense to you, which is why we're covering the basics of JavaScript! We'll return to this definition at the end of this post, and, equipped with our knowledge, we'll tackle it piece by piece. 
 
-Please note that in this blog post, I've tried to separate different topics so that each new topic builds upon things previously learnt. That being said, somethings need to be mentioned before they are looked at in detail - and I've noted this throughout and stated where these things will be covered later on in the post.
+Please note that in this blog post, I've tried to separate the topics so that each new topic builds upon things previously learnt. That being said, somethings need to be mentioned before they are looked at in detail - and I've noted this throughout and stated where these things will be covered later on in the post.
 
 So let's get started!
 

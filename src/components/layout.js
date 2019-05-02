@@ -43,22 +43,27 @@ const particleParams = {
   },
 };
 
-const Layout = ({ children, particles }) => (
-  <div>
-    {particles && (<ParticleStyles params={particleParams} />)}
-    <Navbar lhs={['Blog']} rhs={['About', 'Projects', 'Contact']} />
-    <main>
-      { children }
-    </main>
-  </div>
-);
+const Layout = ({ children, particles, onHover }) => {
+  particleParams.interactivity.events.onhover.mode = onHover;
+  return (
+    <div>
+      {particles && <ParticleStyles params={particleParams} />}
+      <Navbar lhs={['Blog']} rhs={['About', 'Projects', 'Contact']} />
+      <main>
+        { children }
+      </main>
+    </div>
+  );
+};
 
 Layout.defaultProps = {
+  onHover: 'repulse',
   particles: false,
 };
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  onHover: PropTypes.string,
   particles: PropTypes.bool,
 };
 

@@ -1,8 +1,11 @@
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 import styled from 'styled-components';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import aboutImg from '../images/about/about.jpg';
 import cv from '../images/about/cv.png';
 
 export const Section = styled.section`
@@ -71,13 +74,13 @@ const ImageContainer = styled.div`
   }
 `;
 
-const AboutPage = () => (
+const AboutPage = ({ data }) => (
   <Layout>
     <SEO title="About" keywords={['blog', 'javascript', 'react', 'gatsby']} />
     <Section>
       <Title>About</Title>
       <AboutImageDiv>
-        <img src={aboutImg} alt="Me in Marseille" />
+        <Img fluid={data.aboutImg.childImageSharp.fluid} alt="Me in Marseille" />
       </AboutImageDiv>
       <AboutText>
         Hi, I&apos;m Alex. I&apos;m a web developer and a recent Computer Science graduate.
@@ -109,4 +112,20 @@ const AboutPage = () => (
   </Layout>
 );
 
+AboutPage.propTypes = {
+  data: PropTypes.object.isRequired,
+};
+
 export default AboutPage;
+
+export const query = graphql`
+  query {
+    aboutImg: file(relativePath: { eq: "about/about.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1000) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;

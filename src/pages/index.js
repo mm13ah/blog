@@ -1,10 +1,13 @@
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faReact, faJs, faHtml5, faCss3Alt,
 } from '@fortawesome/free-brands-svg-icons';
-import homeImg from '../images/home/home.png';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
@@ -24,9 +27,6 @@ const HomeImageDiv = styled.div`
     max-width: 100%;
     height: auto;
   }
-  img:hover {
-    filter: blur(0px);
-  }
   @media screen and (min-width: 480px) {
     width: 60%;
   }
@@ -41,6 +41,34 @@ const HomeImageDiv = styled.div`
   }
 `;
 
+const Title = styled.h1`
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  font-size: 26px;
+  letter-spacing: 1px;
+  animation: fadein 1s;
+  @keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @media screen and (min-width: 992px) {
+    margin-top: 30px;
+  }
+`;
+
+const Subtitle = styled.p`
+  margin-top: 0;
+  font-size: 18px;
+  letter-spacing: 3px;
+  animation: fadein 3s;
+  @keyframes fadein {
+    0% { opacity: 0; }
+    33% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+`;
+
 const IconList = styled.ul`
   width: 90vw;
   font-size: 40px;
@@ -49,6 +77,12 @@ const IconList = styled.ul`
   margin: 10px 0 100px 0;
   display: flex;
   justify-content: space-around;
+  animation: fadein 3s;
+  @keyframes fadein {
+    0% { opacity: 0; }
+    33% { opacity: 0; }
+    100% { opacity: 1; }
+  }
   @media screen and (min-width: 480px) {
     width: 60vw;
   }
@@ -63,29 +97,12 @@ const IconList = styled.ul`
   }
 `;
 
-const Title = styled.h1`
-  text-align: center;
-  margin-top: 50px;
-  margin-bottom: 10px;
-  font-size: 26px;
-  letter-spacing: 1px;
-  @media screen and (min-width: 992px) {
-    margin-top: 30px;
-  }
-`;
-
-const Subtitle = styled.p`
-  margin-top: 0;
-  font-size: 18px;
-  letter-spacing: 3px;
-`;
-
-const IndexPage = () => (
-  <Layout particles>
+const IndexPage = ({ data }) => (
+  <Layout particles onHover="grab">
     <SEO title="Home" keywords={['blog', 'javascript', 'react', 'gatsby']} />
     <Section>
       <HomeImageDiv>
-        <img src={homeImg} alt="Me" />
+        <Img fluid={data.homeImg.childImageSharp.fluid} />
       </HomeImageDiv>
       <Title>Hi, I&apos;m Alex.</Title>
       <Subtitle>A web developer.</Subtitle>
@@ -96,8 +113,23 @@ const IndexPage = () => (
         <li><FontAwesomeIcon icon={faCss3Alt} /></li>
       </IconList>
     </Section>
-    {/* </Particles> */}
   </Layout>
 );
 
+IndexPage.propTypes = {
+  data: PropTypes.object.isRequired,
+};
+
 export default IndexPage;
+
+export const query = graphql`
+  query {
+    homeImg: file(relativePath: { eq: "home/home.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 1000) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;

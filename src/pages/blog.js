@@ -25,6 +25,7 @@ const Section = styled.section`
 
 const PostList = styled.ul`
   list-style-type: none;
+  background: rgba(41, 48, 61, 0.8);
   padding: 0;
   li {
     border-bottom: solid 1px whitesmoke;
@@ -60,7 +61,7 @@ const PostExcerpt = styled.p`
 const BlogPage = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark;
   return (
-    <Layout>
+    <Layout particles>
       <Section>
         <Title>Blog</Title>
         <PostList>
@@ -95,9 +96,6 @@ export const pageQuery = graphql`
             title
             path
             date
-            image {
-              publicURL
-            }
           }
         }
       }
