@@ -49,5 +49,6 @@ module.exports = {
         maxWidth: 1080,
       },
     },
+    'gatsby-plugin-styled-components',
   ],
 };
