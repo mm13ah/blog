@@ -10,6 +10,7 @@
     "jupyter",
     "noopener",
     "noreferrer",
+    "onhover",
     "pdes",
     "truthy",
     "typeof"

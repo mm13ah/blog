@@ -48,7 +48,9 @@ const Layout = ({ children, particles, onHover }) => {
   return (
     <div>
       {particles && <ParticleStyles params={particleParams} />}
-      <Navbar lhs={['Blog']} rhs={['About', 'Projects', 'Contact']} />
+      <Navbar rhs={['About', 'Projects', 'Contact']} />
+      {' '}
+      { /* Add lhs={['Blog']}} for Blog */ }
       <main>
         { children }
       </main>

@@ -1,12 +1,12 @@
 /* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import cv from '../images/about/cv.png';
+// import cv from '../images/about/cv.png';
 
 export const Section = styled.section`
   width: 80vw;
@@ -58,21 +58,24 @@ const AboutText = styled.p`
   @media screen and (min-width: 992px) {
     width: 50vw;
   }
+  a {
+    color: white;
+  }
 `;
 
-const ImageContainer = styled.div`
-  width: 80vw;
-  @media screen and (min-width: 768px) {
-  width: 60vw;
-  }
-  @media screen and (min-width: 992px) {
-    width: 50vw;
-  }
-  img {
-    max-width: 100%;
-    margin: 50px auto;
-  }
-`;
+// const ImageContainer = styled.div`
+//   width: 80vw;
+//   @media screen and (min-width: 768px) {
+//   width: 60vw;
+//   }
+//   @media screen and (min-width: 992px) {
+//     width: 50vw;
+//   }
+//   img {
+//     max-width: 100%;
+//     margin: 50px auto;
+//   }
+// `;
 
 const AboutPage = ({ data }) => (
   <Layout>
@@ -90,8 +93,8 @@ const AboutPage = ({ data }) => (
       </AboutText>
       <AboutText>
         I love working with JavaScript and all the brilliant open source technologies
-        that come with it. The current technologies I use are React, Gatsby, GraphQL,
-        TypeScript and NodeJS. I have a solid foundation in writing semantic HTML, styling
+        that come with it. The current technologies I use are React, GraphQL, Gatsby and
+        TypeScript. I have a solid foundation in writing semantic HTML, styling
         and creating responsive layouts with CSS, and also previous experience using Bootstrap
         and jQuery.
       </AboutText>
@@ -102,12 +105,14 @@ const AboutPage = ({ data }) => (
       </AboutText>
       <AboutText>
         If you&apos;d like to know more about my technical experience or want to see examples of
-        my work, check out my projects. If you&apos;d like to know more about me, have a look at
-        my CV below. Otherwise, feel free to contact me.
+        my work, check out my projects. Otherwise, feel free to
+        {' '}
+        <Link to="/contact">contact me</Link>
+.
       </AboutText>
-      <ImageContainer>
+      {/* <ImageContainer>
         <img src={cv} alt="My CV" />
-      </ImageContainer>
+      </ImageContainer> */}
     </Section>
   </Layout>
 );

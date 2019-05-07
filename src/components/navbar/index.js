@@ -61,7 +61,7 @@ class Navbar extends React.Component {
   }
 
   render() {
-    const { lhs, rhs } = this.props;
+    const { rhs } = this.props;
     const { showMobileMenu } = this.state;
     return (
       <Nav>
@@ -71,11 +71,11 @@ class Navbar extends React.Component {
               <Icon icon={faHome} />
             </NavLink>
           </li>
-          {lhs.map(item => (
+          {/* {lhs.map(item => (
             <li className="desktopLink" key={item.toLowerCase()}>
               <NavLink to={`/${item.toLowerCase()}`}>{item}</NavLink>
             </li>
-          ))}
+          ))} */}
           <span />
         </LHS>
         <span />
@@ -84,14 +84,15 @@ class Navbar extends React.Component {
         </RHS>
         <MobileButton toggleMobileMenu={this.toggleMobileMenu} />
         <span />
-        <MobileMenu visibility={showMobileMenu} list={[...lhs, ...rhs]} />
+        {/* <MobileMenu visibility={showMobileMenu} list={[...lhs, ...rhs]} /> */}
+        <MobileMenu visibility={showMobileMenu} list={[...rhs]} />
       </Nav>
     );
   }
 }
 
 Navbar.propTypes = {
-  lhs: PropTypes.arrayOf(PropTypes.string).isRequired,
+  // lhs: PropTypes.arrayOf(PropTypes.string).isRequired,
   rhs: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
