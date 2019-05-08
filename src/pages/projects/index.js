@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import Layout from '../../components/layout';
+import SEO from '../../components/seo';
 import { Title } from '../about';
 // import AcademicProjects from '../../components/projects/academicProjects';
 
@@ -59,6 +60,7 @@ const AcademicProjectsDiv = styled.div`
 
 const ProjectsPage = ({ data }) => (
   <Layout>
+    <SEO title="Projects" keywords={['blog', 'javascript', 'react', 'gatsby']} />
     <Section>
       <Title>Projects</Title>
       <h2>Web Development Projects</h2>

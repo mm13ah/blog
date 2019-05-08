@@ -52,7 +52,7 @@ const Label = styled.label`
 
 const ContactPage = () => (
   <Layout particles>
-    <SEO title="About" keywords={['blog', 'javascript', 'react', 'gatsby']} />
+    <SEO title="Contact" keywords={['blog', 'javascript', 'react', 'gatsby']} />
     <Section>
       <Title>Contact</Title>
       <p>
