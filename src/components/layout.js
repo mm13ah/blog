@@ -45,6 +45,9 @@ const particleParams = {
 
 const Layout = ({ children, particles, onHover }) => {
   particleParams.interactivity.events.onhover.mode = onHover;
+  if (window.innerWidth < 768) {
+    particleParams.particles.number.value = 20;
+  }
   return (
     <div>
       {particles && <ParticleStyles params={particleParams} />}
