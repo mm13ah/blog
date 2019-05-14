@@ -15,7 +15,7 @@ const ParticleStyles = styled(Particles)`
 const particleParams = {
   particles: {
     number: {
-      value: 50,
+      value: 20,
     },
     size: {
       value: 2,
