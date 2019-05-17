@@ -13,31 +13,31 @@ import SEO from '../components/seo';
 
 const Section = styled.section`
   width: 80vw;
-  margin: 80px auto 0;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 const HomeImageDiv = styled.div`
-  max-width: 80%;
+  width: 70%;
+  margin: 20px auto 0 auto;
   img {
     border-radius: 100%;
     text-align: center;
-    max-width: 100%;
-    height: auto;
   }
   @media screen and (min-width: 480px) {
-    width: 60%;
-  }
-  @media screen and (min-width: 640px) {
     width: 50%;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 640px) {
     width: 40%;
   }
+  @media screen and (min-width: 768px) {
+    width: 30%;
+    margin-top: 80px;
+  }
   @media screen and (min-width: 992px) {
-    width: 25%;
+    width: 20%;
   }
 `;
 
@@ -62,6 +62,7 @@ const Subtitle = styled.p`
   font-size: 18px;
   letter-spacing: 3px;
   animation: fadein 3s;
+  text-align: center;
   @keyframes fadein {
     0% { opacity: 0; }
     33% { opacity: 0; }
@@ -100,10 +101,10 @@ const IconList = styled.ul`
 const IndexPage = ({ data }) => (
   <Layout particles onHover="grab">
     <SEO title="Home" keywords={['blog', 'javascript', 'react', 'gatsby']} />
+    <HomeImageDiv>
+      <Img fluid={data.homeImg.childImageSharp.fluid} alt="Me" />
+    </HomeImageDiv>
     <Section>
-      <HomeImageDiv>
-        <Img fluid={data.homeImg.childImageSharp.fluid} />
-      </HomeImageDiv>
       <Title>Hi, I&apos;m Alex.</Title>
       <Subtitle>A web developer.</Subtitle>
       <IconList>
@@ -124,7 +125,7 @@ export default IndexPage;
 
 export const query = graphql`
   query {
-    homeImg: file(relativePath: { eq: "home/home.png" }) {
+    homeImg: file(relativePath: { eq: "home/home.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1000) {
           ...GatsbyImageSharpFluid
