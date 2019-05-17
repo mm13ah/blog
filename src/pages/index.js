@@ -13,7 +13,7 @@ import SEO from '../components/seo';
 
 const Section = styled.section`
   width: 80vw;
-  margin: 0 auto;
+  margin: 20px auto 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,7 +34,7 @@ const HomeImageDiv = styled.div`
   }
   @media screen and (min-width: 768px) {
     width: 30%;
-    margin-top: 80px;
+    margin-top: 40px;
   }
   @media screen and (min-width: 992px) {
     width: 20%;

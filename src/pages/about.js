@@ -49,11 +49,11 @@ const AboutImageDiv = styled.div`
 
 const AboutText = styled.p`
   font-size: 1.3em;
-  text-align: justify;
   line-height: 2;
   width: 80vw;
   @media screen and (min-width: 768px) {
-  width: 60vw;
+    width: 60vw;
+    text-align: justify;
   }
   @media screen and (min-width: 992px) {
     width: 50vw;
