@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import Particles from 'react-particles-js';
 import Navbar from './navbar';
 import './layout.css';
+import '@fortawesome/fontawesome-svg-core/styles.css'; // ensure icon loaded before render
+
 
 const ParticleStyles = styled(Particles)`
   position: absolute;
